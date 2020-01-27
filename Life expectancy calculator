@@ -1,0 +1,75 @@
+package lifeexpectancy;
+
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class Lifeexpectancy {
+    public static String date = null;
+    public static Integer temp = null;
+    //public static Integer theirDays = null;
+    
+    
+    public static void unitsoftime(Integer units1,Integer units2){        
+        String yearsmonthsect = date.substring(units1,units2);
+        int result = Integer.parseInt(yearsmonthsect);
+        //System.out.println(result);
+        temp =(result);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        //months start at 0
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minute = cal.get(Calendar.MINUTE);
+        int second = cal.get(Calendar.SECOND);
+        int lifeexp = 71;
+        System.out.println("what is your date of birth?");
+        //DateFormat dateFormat = new SimpleDateFormat("yyy/MM/dd");
+        date = input.next();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date2 = null;
+        try {
+            //Parsing the String
+            date2 = dateFormat.parse(date);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        unitsoftime(0,2);
+        int theirDays = (temp-day);
+        //if (day <= (temp)+5){
+            //int theirDays = (temp - day);
+        //}
+        //else{
+            //int theirDays = (day-temp);
+        //}
+        
+        unitsoftime(3,5);
+        int theirMonths = (12-temp)+1;
+        unitsoftime(6,10);
+        int theirYears = (year - temp);
+        if (theirYears < 40){
+            System.out.println("You're a spring chicken!");
+        }
+        else{
+            System.out.println("You're wiser than many, as with age, comes wisdom");
+        }
+        System.out.print("Youve been alive for " + theirDays+ " days");
+        System.out.print("," + theirMonths + " months");
+        System.out.println(" and " + theirYears + " years.");
+        int timeleft = (lifeexp - theirYears);
+        System.out.println("Because the average life expectancy is " + lifeexp +" you're expected to have " + timeleft + " years left in england");
+        
+
+        
+    }
+
+}
