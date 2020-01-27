@@ -1,0 +1,43 @@
+package javaapplication1;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("What letters would you like to compress?");
+        String letters = input.next();
+        int counter = 0;
+        //System.out.println(letters.charAt(0));
+               letters += "1";
+        int size = letters.length();
+        ArrayList <String> list = new ArrayList<>();
+ 
+        for (int i = 0; i < size-1; i++) {
+            if ((letters.charAt(i)) == (letters.charAt(i+1))) {
+                //System.out.println(letters.charAt(i));
+                counter++;
+                //list.add(String.valueOf(letters.charAt(i)));
+                
+                
+               
+            }
+            else{
+                list.add(String.valueOf(letters.charAt(i)) + String.valueOf(counter + 1));
+                counter = 0;
+            }
+
+        }
+        
+        
+        System.out.println("~~~~~~~~~~~~~~~~~");
+        for(int i = 0; i < list.size();i++){
+            System.out.print(list.get(i));
+        }
+
+    }
+
+}
