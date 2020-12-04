@@ -1,2 +1,2 @@
-# Coding
-A set of odd programs developed by myself :)
+# Main code
+A set of programs i have developed during my time at Reigate
